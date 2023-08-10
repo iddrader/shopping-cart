@@ -4,3 +4,39 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+#root {
+    display: grid;
+    grid-template-rows: 3.5em;
+    grid-template-columns: 1fr;
+    height: 100vh;
+}
+
+.index {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url("../assets/index-background.webp") no-repeat;
+    background-size: cover;
+}
+
+.welcoming-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    color: white;
+    padding: 6em;
+    border-radius: 2em;
+    text-shadow: 0.4em 0.4em 0.4em black;
+}
+
+.welcoming-section button {
+    padding: 0.8em;
+    border-radius: 1em;
+    font-weight: 600;
+    font-size: 1.1em;
+    border: none;
+
+}
