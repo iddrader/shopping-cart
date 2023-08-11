@@ -1,6 +1,7 @@
 import {useOutletContext} from "react-router-dom";
 import {useEffect, useState} from "react";
 import '../styles/Cart.css';
+import FlipMove from "react-flip-move";
 
 const Cart = () => {
     const [cart, setCart] = useOutletContext();
@@ -45,25 +46,26 @@ const Cart = () => {
 
 
     return (
-        <div className="cart">
-            {productsToShow && productsToShow.map(product => (
-                <div className="cart-item" key={product.id}>
-                    <img src={product.image} alt="" className="cart-image"/>
-                    <div className="cart-info">
-                        <p>{product.title}</p>
-                        <div className="quantity">
-                            <button onClick={decrease} data-id={product.id}>-</button>
-                            {product.value}
-                            <button onClick={increase} data-id={product.id}>+</button>
+        <div className='cart-page'>
+            <div className="cart">
+                {productsToShow && productsToShow.map(product => (
+                    <div className="cart-item" key={product.id}>
+                        <img src={product.image} alt="" className="cart-image"/>
+                        <div className="cart-info">
+                            <p>{product.title}</p>
+                            <div className="quantity">
+                                <button onClick={decrease} data-id={product.id}>-</button>
+                                {product.value}
+                                <button onClick={increase} data-id={product.id}>+</button>
+                            </div>
                         </div>
                     </div>
-
-
-                </div>
-            ))}
-
-            {!productsToShow && <div className="cart-item">Nothing here!</div>}
+                ))}
+                {!productsToShow && <div className="cart-item">Nothing here!</div>}
+            </div>
+            {productsToShow && <button className="order-button">Order!</button>}
         </div>
+
     )
 }
 

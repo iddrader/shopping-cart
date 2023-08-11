@@ -1,18 +1,19 @@
 .cart {
     background-color: #545454;
-    max-width: 80%;
+    width: 80%;
     padding: 3em;
     border-radius: 2em;
     margin: 2em auto auto;
     display: flex;
+    flex-direction: column;
+
     gap: 3em;
-    flex-wrap: wrap;
 }
 
 .cart-item {
     background-color: white;
     margin-top: 1em;
-    width: fit-content;
+    min-width: 100%;
     padding: 2em;
     border-radius: 1em;
     display: flex;
@@ -45,5 +46,20 @@
     background-color: #888;
     font-weight: bolder;
     font-size: 1.2em;
+    color: white;
+}
+
+.cart-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.order-button {
+    padding: 2em;
+    border: none;
+    margin: 1em;
+    border-radius: 1em;
+    background-color: #454545;
     color: white;
 }
