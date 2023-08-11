@@ -6,10 +6,7 @@
 }
 
 #root {
-    display: grid;
-    grid-template-rows: 3.5em;
-    grid-template-columns: 1fr;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .index {
@@ -19,6 +16,7 @@
     align-items: center;
     background: url("../assets/index-background.webp") no-repeat;
     background-size: cover;
+    height: calc(100vh - 3.6em);
 }
 
 .welcoming-section {
