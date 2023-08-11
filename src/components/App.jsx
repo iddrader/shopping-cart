@@ -1,6 +1,6 @@
 import Header from "./Header.jsx";
 import {Outlet} from "react-router-dom";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 const App = () => {
     const [cart, setCart] = useState([]);
