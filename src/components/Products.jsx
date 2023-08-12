@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import ProductCard from "./ProductCard.jsx";
 import "../styles/Products.css";
-import {useOutletContext} from "react-router-dom";
+import {useOutletContext, redirect} from "react-router-dom";
 
 const Products = () => {
     const [products, setProducts] = useState(null);
@@ -20,6 +20,10 @@ const Products = () => {
             newCart[index].value += 1;
             setCart(newCart);
         }
+        event.target.textContent = "+ 1"
+        setTimeout(() => {
+            event.target.textContent = 'Add to cart';
+        }, 5000)
     }
 
     useEffect(() => {

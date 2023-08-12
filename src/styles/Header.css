@@ -7,14 +7,14 @@ header {
 .header-links-list {
     display: flex;
     justify-content: flex-end;
-    padding: 1em 3em;
-    gap: 3em;
+    padding: 1em 4em;
+    gap: 5em;
     list-style: none;
 }
 
 .header-link {
     color: white;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 100;
     font-size: 1.4em;
 }
