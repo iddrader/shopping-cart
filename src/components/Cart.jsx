@@ -3,16 +3,11 @@ import {useEffect, useState} from "react";
 import '../styles/Cart.css';
 
 const Cart = (props) => {
-    const [cart, setCart] = useOutletContext();
-    const [products, setProducts] = useState(null);
-    const [productsToShow, setProductsToShow] = useState();
+    const cart = props.cart;
+    const setCart = props.setCart;
+    const products = props.products;
     const reverseCart = props.reverseCart;
-
-    useEffect(() => {
-        fetch('https://fakestoreapi.com/products')
-            .then(result=>result.json())
-            .then(json=>setProducts(json))
-    }, [])
+    const [productsToShow, setProductsToShow] = useState();
 
     useEffect(() => {
         if(cart.length === 0 || products === null){
@@ -24,24 +19,22 @@ const Cart = (props) => {
             product.value = cartItem.value;
             return product;
         }))
-    }, [products, cart])
+    }, [cart])
 
-    function decrease(event) {
+
+    function changeQuantity(event) {
         const id = event.target.dataset.id;
         let newCart = [...cart];
         const index = newCart.findIndex(element => element.id === id);
-        newCart[index].value -= 1;
-        if(newCart[index].value === 0)
-            newCart.splice(index, 1);
-        setCart([...newCart]);
-    }
-
-    function increase(event) {
-        const id = event.target.dataset.id;
-        const newCart = cart;
-        const index = newCart.findIndex(element => element.id === id);
-        newCart[index].value += 1;
-        setCart([...newCart]);
+        if(event.target.textContent === "-"){
+            newCart[index].value -= 1;
+            if(newCart[index].value === 0)
+                newCart.splice(index, 1);
+            setCart([...newCart]);
+        } else {
+            newCart[index].value += 1;
+            setCart([...newCart]);
+        }
     }
 
 
@@ -55,9 +48,9 @@ const Cart = (props) => {
                         <div className="cart-info">
                             <p>{product.title}</p>
                             <div className="quantity">
-                                <button onClick={decrease} data-id={product.id}>-</button>
+                                <button onClick={changeQuantity} data-id={product.id}>-</button>
                                 {product.value}
-                                <button onClick={increase} data-id={product.id}>+</button>
+                                <button onClick={changeQuantity} data-id={product.id}>+</button>
                             </div>
                         </div>
                     </div>

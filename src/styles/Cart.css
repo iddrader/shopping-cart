@@ -63,6 +63,7 @@
     right: 0;
     height: 100vh;
     overflow-y: scroll;
+    min-width: 30%;
 }
 
 .close-button {

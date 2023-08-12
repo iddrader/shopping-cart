@@ -7,7 +7,8 @@ const ProductCard = (props) => {
     const [modalActive, setModalActive] = useState(false);
 
     const modalSwitch = () => {
-        setModalActive(!modalActive);
+        const newState = !modalActive;
+        setModalActive(newState);
     }
 
     return (

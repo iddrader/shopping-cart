@@ -12,7 +12,6 @@ const Router = () => {
             children: [
                 {index: true, element: <Index />},
                 {path: "products", element: <Products />},
-                {path: "cart", element: <Cart />}
             ]
         },
     ])

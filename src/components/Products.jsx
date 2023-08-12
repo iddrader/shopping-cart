@@ -6,7 +6,9 @@ import Cart from './Cart.jsx';
 
 const Products = () => {
     const [products, setProducts] = useState(null);
-    const [cart, setCart, showCart, reverseCart] = useOutletContext();
+    const [showCart, reverseCart] = useOutletContext();
+    const [cart, setCart] = useState([]);
+
 
     function addToCart(event)  {
         const index = cart.findIndex(product => product.id === event.target.dataset.id);
@@ -17,9 +19,9 @@ const Products = () => {
             }]);
         }
         else{
-            const newCart = cart;
+            const newCart = [...cart];
             newCart[index].value += 1;
-            setCart(newCart);
+            setCart([...newCart]);
         }
         event.target.textContent = "+ 1"
         setTimeout(() => {
@@ -36,9 +38,19 @@ const Products = () => {
     return (
         <div className="products-list">
             {products && products.map((product) => (
-                <ProductCard key={product.title} product={product} addToCart={addToCart}/>
+                <ProductCard 
+                    key={product.title} 
+                    product={product} 
+                    addToCart={addToCart}
+                />
             ))}
-            { showCart && <Cart reverseCart={reverseCart}/> }
+            { showCart && 
+                <Cart 
+                    reverseCart={reverseCart}
+                    cart={cart}
+                    setCart={setCart}  
+                    products={products}
+                /> }
         </div>
     )
 }
