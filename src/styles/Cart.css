@@ -64,6 +64,17 @@
     height: 100vh;
     overflow-y: scroll;
     min-width: 30%;
+    animation: rightLeft 0.2s;
+    z-index: 2;
+}
+
+@keyframes rightLeft {
+    from {
+        transform: translate(100%, 0);
+    }
+    to {
+        transform: translate(0, 0);
+    }
 }
 
 .close-button {
@@ -71,4 +82,17 @@
     font-weight: 100;
     font-size: 1.4em;
     text-align: right;
+}
+
+.cart-modal:before {
+    position: fixed;
+    top : 0;
+    left: 0;
+    width: 100%;
+    height: 1000%;
+    background-color: black;
+    content:"";
+    pointer-events: none;
+    z-index:-1;
+    opacity: .6;
 }
