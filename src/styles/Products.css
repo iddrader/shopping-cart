@@ -42,6 +42,14 @@
     color: white;
 }
 
+.product-card button:active {
+    transform: scale(1.1)
+}
+
+.product-card button:not(:active) {
+    transition: transform 0.2s ease;
+}
+
 .products-list {
     display: flex;
     flex-wrap: wrap;

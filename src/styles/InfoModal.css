@@ -1,13 +1,23 @@
 .modal-info {
-    position: fixed;
+    position: absolute;
     border: 2px solid black;
     background-color: white;
     padding: 2em;
     width: 40%;
     left: 50%;
     transform: translate(-50%, 0);
-    filter: blur(0);
     z-index: 2;
+    animation: 0.2s ease-out topDown;
+}
+
+@keyframes topDown {
+    0% {
+        transform: translate(-50%, -100%);
+
+    }
+    100% {
+        transform: translate(-50%, 0);
+    }
 }
 
 .modal-content > img {
@@ -35,11 +45,10 @@
     top : 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 1000%;
     background-color: black;
     content:"";
     pointer-events: none;
     z-index:1;
     opacity: .5;
-    filter: blur(12px);
 }

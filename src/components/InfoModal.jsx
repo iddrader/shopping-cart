@@ -12,7 +12,11 @@ function InfoModal(props) {
                 </div>
                 <div className="modal-content">
                     <img src={product.image} alt="" />
-                    <div>{product.description}<button onClick={addToCart} data-id={product.id}>Add to cart</button></div>
+                    <div>
+                        {product.description}
+                        <br />
+                        <button onClick={addToCart} data-id={product.id}>Add to cart</button>
+                    </div>
                 </div>
                 <button onClick={modalSwitch}>Close</button>
             </div>

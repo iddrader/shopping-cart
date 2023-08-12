@@ -1,12 +1,12 @@
 import {useOutletContext} from "react-router-dom";
 import {useEffect, useState} from "react";
 import '../styles/Cart.css';
-import FlipMove from "react-flip-move";
 
-const Cart = () => {
+const Cart = (props) => {
     const [cart, setCart] = useOutletContext();
     const [products, setProducts] = useState(null);
     const [productsToShow, setProductsToShow] = useState();
+    const reverseCart = props.reverseCart;
 
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
@@ -46,8 +46,9 @@ const Cart = () => {
 
 
     return (
-        <div className='cart-page'>
+        <div className='cart-modal'>
             <div className="cart">
+                <div className="close-button" onClick={reverseCart}>Close</div>
                 {productsToShow && productsToShow.map(product => (
                     <div className="cart-item" key={product.id}>
                         <img src={product.image} alt="" className="cart-image"/>
@@ -62,8 +63,9 @@ const Cart = () => {
                     </div>
                 ))}
                 {!productsToShow && <div className="cart-item">Nothing here!</div>}
+                {productsToShow && <button className="order-button">Order!</button>}
+
             </div>
-            {productsToShow && <button className="order-button">Order!</button>}
         </div>
 
     )

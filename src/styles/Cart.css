@@ -1,20 +1,15 @@
 .cart {
     background-color: #545454;
-    width: 80%;
-    padding: 3em;
-    border-radius: 2em;
-    margin: 2em auto auto;
+    padding: 2em;
     display: flex;
     flex-direction: column;
-
-    gap: 3em;
+    gap: 1em;
+    height: 100%;
 }
 
 .cart-item {
     background-color: white;
-    margin-top: 1em;
-    min-width: 100%;
-    padding: 2em;
+    padding: 1.2em;
     border-radius: 1em;
     display: flex;
     align-items: center;
@@ -26,7 +21,7 @@
 }
 
 .cart-image {
-    width: 200px;
+    width: 40px;
 }
 
 .cart-info {
@@ -34,25 +29,22 @@
 }
 
 .quantity {
-    margin: 1em;
+    margin: 0.2em;
     display: flex;
     gap: 0.2em;
     align-items: center;
+    background-color: #545454;
+    color: white;
+    width: fit-content
 }
 
 .quantity > button {
     padding: 2px 8px;
     border: none;
-    background-color: #888;
+    background-color: #545454;
     font-weight: bolder;
     font-size: 1.2em;
     color: white;
-}
-
-.cart-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .order-button {
@@ -62,4 +54,20 @@
     border-radius: 1em;
     background-color: #454545;
     color: white;
+}
+
+.cart-modal {
+    position: fixed;
+    margin: 0;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.close-button {
+    color: white;
+    font-weight: 100;
+    font-size: 1.4em;
+    text-align: right;
 }

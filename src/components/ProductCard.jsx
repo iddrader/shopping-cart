@@ -8,7 +8,6 @@ const ProductCard = (props) => {
 
     const modalSwitch = () => {
         setModalActive(!modalActive);
-        
     }
 
     return (

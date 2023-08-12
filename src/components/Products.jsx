@@ -2,10 +2,11 @@ import {useEffect, useState} from "react";
 import ProductCard from "./ProductCard.jsx";
 import "../styles/Products.css";
 import {useOutletContext, redirect} from "react-router-dom";
+import Cart from './Cart.jsx';
 
 const Products = () => {
     const [products, setProducts] = useState(null);
-    const [cart, setCart] = useOutletContext();
+    const [cart, setCart, showCart, reverseCart] = useOutletContext();
 
     function addToCart(event)  {
         const index = cart.findIndex(product => product.id === event.target.dataset.id);
@@ -37,6 +38,7 @@ const Products = () => {
             {products && products.map((product) => (
                 <ProductCard key={product.title} product={product} addToCart={addToCart}/>
             ))}
+            { showCart && <Cart reverseCart={reverseCart}/> }
         </div>
     )
 }
