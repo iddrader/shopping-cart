@@ -5,9 +5,8 @@ const Index = () => {
     return (
         <div className="index">
             <div className="welcoming-section">
-                <h1>Welcome to IddraderExpress!</h1>
-                <p>In my store you can find a wide variety of products!</p>
-                <Link to='products'><button>Shop now!</button></Link>
+                <h1>Welcome to <br/> New Day Shop!</h1>
+                <Link to='products'><button>Click here to start shopping!</button></Link>
             </div>
         </div>
     )
