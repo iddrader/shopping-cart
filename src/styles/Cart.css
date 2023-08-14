@@ -1,5 +1,5 @@
 .cart {
-    background-color: #545454;
+    background-color: white;
     padding: 2em;
     display: flex;
     flex-direction: column;
@@ -8,12 +8,11 @@
 }
 
 .cart-item {
-    background-color: white;
     padding: 1.2em;
     border-radius: 1em;
     display: flex;
     align-items: center;
-    max-width: 400px;
+    min-width: 100%;
 }
 
 .cart-item p {
@@ -29,26 +28,24 @@
 }
 
 .quantity {
-    margin: 0.2em;
+    margin-top: 0.8em;
     display: flex;
     gap: 0.2em;
     align-items: center;
-    background-color: #545454;
-    color: white;
-    width: fit-content
+    background-color: #eee;
+    width: fit-content;
 }
 
 .quantity > button {
     padding: 2px 8px;
     border: none;
-    background-color: #545454;
+    background-color: #eee;
     font-weight: bolder;
     font-size: 1.2em;
-    color: white;
 }
 
 .order-button {
-    padding: 2em;
+    padding: 1em;
     border: none;
     margin: 1em;
     border-radius: 1em;
@@ -78,8 +75,7 @@
 }
 
 .close-button {
-    color: white;
-    font-weight: 100;
+    font-weight: 300;
     font-size: 1.4em;
     text-align: right;
 }
