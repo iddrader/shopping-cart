@@ -1,4 +1,3 @@
-import {useOutletContext} from "react-router-dom";
 import {useEffect, useState} from "react";
 import '../styles/Cart.css';
 

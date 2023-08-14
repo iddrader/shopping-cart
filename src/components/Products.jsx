@@ -1,14 +1,12 @@
 import {useEffect, useState} from "react";
 import ProductCard from "./ProductCard.jsx";
 import "../styles/Products.css";
-import {useOutletContext, redirect} from "react-router-dom";
+import {useOutletContext} from "react-router-dom";
 import Cart from './Cart.jsx';
 
 const Products = () => {
     const [products, setProducts] = useState(null);
-    const [showCart, reverseCart] = useOutletContext();
-    const [cart, setCart] = useState([]);
-
+    const [cart, setCart, showCart, reverseCart] = useOutletContext();
 
     function addToCart(event)  {
         const index = cart.findIndex(product => product.id === event.target.dataset.id);

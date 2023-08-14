@@ -4,16 +4,18 @@ import {useState} from "react";
 
 const App = () => {
     const [showCart, setShowCart] = useState(false);
+    const [cart, setCart] = useState([]);
     
     const reverseCart = () => {
         const newState = !showCart;
         setShowCart(newState);
+        console.log(1)
     }
 
     return (
         <>
-            <Header reverseCart={reverseCart} />
-            <Outlet context={[showCart, reverseCart]}/>
+            <Header reverseCart={reverseCart} cart={cart} />
+            <Outlet context={[cart, setCart, showCart, reverseCart]}/>
         </>
     );
 };
