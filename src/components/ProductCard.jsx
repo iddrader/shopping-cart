@@ -21,7 +21,9 @@ const ProductCard = (props) => {
                 <div className="rating">
                     <p>{product.rating.rate}⭐</p>
                     <span>{product.rating.count} rewievs</span>
+                    ${product.price}
                 </div>
+                
             </div>
             <div className="product-buttons">
                 <button onClick={modalSwitch}>About</button>

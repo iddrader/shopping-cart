@@ -42,11 +42,6 @@
     font-size: 1.2em;
 }
 
-.modal-container {
-    
-
-}
-
 .modal-container:before{
     position:absolute;
     top : 0;

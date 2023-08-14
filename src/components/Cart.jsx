@@ -1,11 +1,9 @@
 import {useEffect, useState} from "react";
 import '../styles/Cart.css';
+import { Link, useOutletContext } from "react-router-dom";
 
 const Cart = (props) => {
-    const cart = props.cart;
-    const setCart = props.setCart;
-    const products = props.products;
-    const reverseCart = props.reverseCart;
+    const [cart, setCart, showCart, reverseCart, products] = useOutletContext();
     const [productsToShow, setProductsToShow] = useState();
 
     useEffect(() => {
@@ -18,7 +16,7 @@ const Cart = (props) => {
             product.value = cartItem.value;
             return product;
         }))
-    }, [cart])
+    }, [cart, products])
 
 
     function changeQuantity(event) {
@@ -50,12 +48,14 @@ const Cart = (props) => {
                                 <button onClick={changeQuantity} data-id={product.id}>-</button>
                                 {product.value}
                                 <button onClick={changeQuantity} data-id={product.id}>+</button>
+                                <div>${Math.floor(product.price * product.value)}</div>
                             </div>
+                            
                         </div>
                     </div>
                 ))}
                 {!productsToShow && <div className="cart-item">Nothing here!</div>}
-                {productsToShow && <button className="order-button">Order!</button>}
+                {productsToShow && <Link to='/checkout'><button className="order-button">Order!</button></Link>}
 
             </div>
         </div>

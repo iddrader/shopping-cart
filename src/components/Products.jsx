@@ -5,8 +5,7 @@ import {useOutletContext} from "react-router-dom";
 import Cart from './Cart.jsx';
 
 const Products = () => {
-    const [products, setProducts] = useState(null);
-    const [cart, setCart, showCart, reverseCart] = useOutletContext();
+    const [cart, setCart, showCart, reverseCart, products] = useOutletContext();
 
     function addToCart(event)  {
         const index = cart.findIndex(product => product.id === event.target.dataset.id);
@@ -27,12 +26,6 @@ const Products = () => {
         }, 5000)
     }
 
-    useEffect(() => {
-        fetch('https://fakestoreapi.com/products')
-            .then(result=>result.json())
-            .then(json=>setProducts(json))
-    }, [])
-
     return (
         <div className="products-list">
             {products && products.map((product) => (
@@ -45,8 +38,6 @@ const Products = () => {
             { showCart && 
                 <Cart 
                     reverseCart={reverseCart}
-                    cart={cart}
-                    setCart={setCart}  
                     products={products}
                 /> }
         </div>
